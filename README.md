@@ -39,7 +39,7 @@ Lexical Wizards uses several technologies:
 - This Large Language Model powered application is intended to perform information retrieval from the loaded document/web and provide personalized answers to user questions through a chat window.
 - We are intending to use LLAMA2 (large language model) for the implementation.
 - Below is the system design for the LexicalWizard application.
-![System Design](LexicalWizardSystemDesign.png)
+![System Design](images/LexicalWizardSystemDesign.png)
 ### Flow:
 
 #### Preprocessing
@@ -84,7 +84,8 @@ To run the application locally, follow these steps:
     API_TOKEN = "your_hugging_face_api_token"
    ```
 ## Usage
-1. Upon running the app, you will see a chat interface with an assistant initialized with a default message: "How may I help you?"
+1. Upon running the app, you will see a chat interface
 2. Enter your question in the chat input. The assistant will then provide an answer based on the content of the provided research paper.
 3. The conversation history is displayed, showing user and assistant messages.
-
+- Below is a screenshot from the LexicalWizard application.
+![Usage](images/LexicalWizardUsage.png)
