@@ -88,4 +88,4 @@ To run the application locally, follow these steps:
 2. Enter your question in the chat input. The assistant will then provide an answer based on the content of the provided research paper.
 3. The conversation history is displayed, showing user and assistant messages.
 4. Below is a screenshot from the LexicalWizard application.
-![Usage](images/LexicalWizardUsage.png)
+![Usage](images/LexicalWizardUsageII.png)
