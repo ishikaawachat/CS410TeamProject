@@ -1,7 +1,9 @@
 langchain
-pypdf
-unstructured
-sentence_transformers
-pinecone-client
-llama-cpp-python
-huggingface_hub
+openai
+PyPDF2
+faiss-cpu
+huggingface-hub
+python-dotenv
+sentence-transformers
+streamlit
+replicate
