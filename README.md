@@ -26,17 +26,15 @@ Lexical Wizard is a project designed to perform Information Retrieval from uploa
 
 Lexical Wizards uses several technologies:
 
-- [Streamlit](https://streamlit.io/) - Interactive web app framework
-- [PyPDF2](https://pypi.org/project/PyPDF2/) - PDF parsing library
 - [LangChain](https://pypi.org/project/langchain/) - Question answering and language processing library
-- [Hugging Face Transformers](https://huggingface.co/models) - Pre-trained language models
-- [Altair](https://altair-viz.github.io/) - Declarative statistical visualization library
-- [Unstructured](https://pypi.org/project/unstructured/) - Open-source components for ingesting and pre-processing images
-- [Sentence Transformers](https://pypi.org/project/sentence-transformers/) - Compute dense vector representations
+- [OpenAi](https://pypi.org/project/openai/) - Include tools and models developed by OpenAI.
+- [PyPDF2](https://pypi.org/project/PyPDF2/) - PDF parsing library
 - [FAISS](https://pypi.org/project/faiss-cpu/) - Local in-memory Vector store to store indexed embeddings.
+- [Huggingface-Hub](https://pypi.org/project/huggingface-hub/) - The Hugging Face Hub library, used for accessing and sharing pre-trained models.
+- [Python-Dotenv](https://pypi.org/project/python-dotenv/) - A library for reading variables from environment files.
+- [Sentence Transformers](https://pypi.org/project/sentence-transformers/) - Compute dense vector representations
+- [Streamlit](https://streamlit.io/) - Interactive web app framework
 - [Replicate](https://pypi.org/project/replicate/0.0.1a10/) - Invokes LLM models through API for chat-based information retrieval.
-- [Llama C++ Python](https://pypi.org/project/llama-cpp-python/) - Python Bindings for llama.cpp
-- [Pandas](https://pandas.pydata.org/) - Data manipulation and analysis library
 
 ## System Design/Architecture
 
