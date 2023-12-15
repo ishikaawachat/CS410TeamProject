@@ -96,7 +96,8 @@ To run the application locally, follow these steps:
 - Make sure the following fields are present in the .env file:
    ```bash
     EMBEDDING_MODEL_NAME=all-MiniLM-L6-v2
-    REPLICATE_API_TOKEN = "your_replicate_api_token"
+    HUGGINGFACEHUB_API_TOKEN=<your_hugging_face_token>
+    REPLICATE_API_TOKEN=<your_replicate_api_token>
    ```
 5. **Start Comand**
    ```bash
