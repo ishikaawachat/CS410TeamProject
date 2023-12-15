@@ -3,8 +3,8 @@
 Lexical Wizard is a project designed to perform Information Retrieval from uploaded documents and provide real-time answers to custom user queries. The system utilizes advanced components such as PDFLoader, CharacterTextSplitter, HuggingFaceEmbeddings, FAISS (local in-memory Vector store), and the powerful LlaMA2 (Large Language Model with 7B parameters). Replicate is employed to invoke LLM models through API calls.
 
 - Interact with the assistant in a chat interface
-- Get answers based on the content of the research paper
-- Easy-to-use, powered by Streamlit
+- Get answers based on the content of any PDF (eg. research paper)
+- Easy-to-use, powered by LlaMA2 and a light weight UI using Streamlit
 
 ### Video
 [![Watch the video](https://img.youtube.com/vi/ektynyO3_Aw/0.jpg)](https://youtu.be/ektynyO3_Aw)
@@ -17,7 +17,7 @@ Lexical Wizard is a project designed to perform Information Retrieval from uploa
 
 ## Features
 
-- Import a research paper in PDF format
+- Import a PDF
 - Ask questions related to the content
 - Assistant provides answers using LangChain and Hugging Face models
 - Chat interface for interactive user experience
@@ -46,7 +46,7 @@ Lexical Wizards uses several technologies:
 
 #### Preprocessing
 
-- The data (PDF/Web Data) for a specific domain will be loaded.
+- The data (PDF) for a specific domain will be loaded.
 - Data from the source will be extracted and split.
 - Split data (chunks) will be converted into embeddings.
 - Embeddings will be saved into an Indexed Vector Database i.e., FAISS.
@@ -95,8 +95,6 @@ To run the application locally, follow these steps:
 - Create a .env directory in the project root.
 - Make sure the following fields are present in the .env file:
    ```bash
-    EMBEDDING_MODEL_NAME=all-MiniLM-L6-v2
-    API_TOKEN = "your_hugging_face_api_token"
     REPLICATE_API_TOKEN = "your_replicate_api_token"
    ```
 5. **Start Comand**
