@@ -1,10 +1,13 @@
 # Lexical Wizards
 ## _Your Streamlit Question-Answering App_
-Lexical Wizards is a Streamlit application that utilizes language models for question answering on a provided research paper about Artificial Intelligence.
+Lexical Wizard is a project designed to perform Information Retrieval from uploaded documents and provide real-time answers to custom user queries. The system utilizes advanced components such as PDFLoader, CharacterTextSplitter, HuggingFaceEmbeddings, FAISS (local in-memory Vector store), and the powerful LlaMA2 (Large Language Model with 7B parameters). Replicate is employed to invoke LLM models through API calls.
 
 - Interact with the assistant in a chat interface
 - Get answers based on the content of the research paper
 - Easy-to-use, powered by Streamlit
+
+### Video
+[![Watch the video](https://img.youtube.com/vi/ektynyO3_Aw/0.jpg)](https://youtu.be/ektynyO3_Aw)
 
 ## Team Memebers
 1. Amrit Kumar (Captain) - amritk2@illinois.edu
@@ -30,7 +33,8 @@ Lexical Wizards uses several technologies:
 - [Altair](https://altair-viz.github.io/) - Declarative statistical visualization library
 - [Unstructured](https://pypi.org/project/unstructured/) - Open-source components for ingesting and pre-processing images
 - [Sentence Transformers](https://pypi.org/project/sentence-transformers/) - Compute dense vector representations
-- [Pinecone Client](https://pypi.org/project/pinecone-client/) - Pinecone python client
+- [FAISS](https://pypi.org/project/faiss-cpu/) - Local in-memory Vector store to store indexed embeddings.
+- [Replicate](https://pypi.org/project/replicate/0.0.1a10/) - Invokes LLM models through API for chat-based information retrieval.
 - [Llama C++ Python](https://pypi.org/project/llama-cpp-python/) - Python Bindings for llama.cpp
 - [Pandas](https://pandas.pydata.org/) - Data manipulation and analysis library
 
@@ -47,17 +51,30 @@ Lexical Wizards uses several technologies:
 - The data (PDF/Web Data) for a specific domain will be loaded.
 - Data from the source will be extracted and split.
 - Split data (chunks) will be converted into embeddings.
-- Embeddings will be saved into an Indexed Vector Database i.e., Pinecone.
+- Embeddings will be saved into an Indexed Vector Database i.e., FAISS.
 - Indexed Vector Store will be acting as a “Knowledge Base” to answer user queries.
 
 #### Answering User Queries
 
 - When a user posts his/her question, embeddings will be created for the provided query.
-- Similarity search will be performed in the Pinecone vector store using the query embeddings.
+- Similarity search will be performed in the FAISS vector store using the query embeddings.
 - Similarity Search will return TOP RANKED chunks from the index vector store.
 - The ranked results will be sent to the LLAMA2 model along with the user/system prompts to answer the asked queries.
 - Answers from the LLAMA2 model will be displayed in the chat window as an answer.
 - For further questions, previous chat conversations will be passed as context to continue the conversation.
+
+## Business Logic Implementations
+- `get_pdf_text(pdf_docs)` - Reads uploaded PDF documents and generates text.
+- `get_text_chunks(text)` - Splits the input text from PDF into smaller chunks.
+- `get_vector_store(text_chunks)` - Generates embeddings for chunks and stores them in the FAISS in-memory vector store.
+- `get_conversation_chain(vector_store)` - Creates a conversational LLM chain based on the 'LlaMA2 70B chat' model using the in-memory vector store. Calls the LLM model via the Replicate API.
+- `handle_user_input(user_question)` - Handles conversation between the user and the LexicalWizard Chatbot.
+- `clear_chat_history()` - Clears the chat history and resets the conversation.
+
+## Streamlit UI Code
+- `main()`
+  - Sets up the Streamlit UI for the Lexical Wizard.
+  - Handles user input, chat history, and document processing.
 
 ## Installation
 
@@ -76,16 +93,21 @@ To run the application locally, follow these steps:
    ```bash
     pip install -r requirements.txt
    ```
-4. **Set up Streamlit secrets:**
-- Create a .streamlit directory in the project root.
-- Create a .secrets.toml file in the .streamlit directory.
-- Add your Hugging Face Hub API token:
+4. **Set up Secrets:**
+- Create a .env directory in the project root.
+- Make sure the following fields are present in the .env file:
    ```bash
+    EMBEDDING_MODEL_NAME=all-MiniLM-L6-v2
     API_TOKEN = "your_hugging_face_api_token"
+    REPLICATE_API_TOKEN = "your_replicate_api_token"
+   ```
+5. **Start Comand**
+   ```bash
+    streamlit run lexical_wizard_app.py
    ```
 ## Usage
 1. Upon running the app, you will see a chat interface
 2. Enter your question in the chat input. The assistant will then provide an answer based on the content of the provided research paper.
 3. The conversation history is displayed, showing user and assistant messages.
 4. Below is a screenshot from the LexicalWizard application.
-![Usage](images/LexicalWizardUserInterface.png)
+![Usage](images/LexicalWizardUsageII.png)
