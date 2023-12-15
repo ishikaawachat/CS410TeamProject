@@ -85,7 +85,7 @@ To run the application locally, follow these steps:
    ```
 2. **Navigate to the project directory:**
    ```bash
-    cd lexical-wizards
+    cd CS410TeamProject
    ```
 3. **Install the required Python packages:**
    ```bash
