@@ -6,6 +6,9 @@ Lexical Wizard is a project designed to perform Information Retrieval from uploa
 - Get answers based on the content of any PDF (eg. research paper)
 - Easy-to-use, powered by LlaMA2 and a light weight UI using Streamlit
 
+## Limitations (Token Size Issue)
+Since we are using an FAISS (local in-memory Vector store), there is a limitation on the number of tokens it can handle. If there is no clear seperation between chunks, (eg. lenghty code) token size issues might be observed. Other options such as PineCone / ElasticSearch / OpenSearch can be used instead.
+
 ### Video
 [![Watch the video](https://img.youtube.com/vi/ektynyO3_Aw/0.jpg)](https://youtu.be/ektynyO3_Aw)
 
